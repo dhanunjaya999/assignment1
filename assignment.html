@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment</title>
+</head>
+
+<body>
+
+  <h2>Student Names</h2>
+  <ul id="studentList"></ul>
+
+  <h2>Students Scored > 60</h2>
+  <ul id="passList"></ul>
+
+  <h2>Department Count</h2>
+  <ul id="deptCount"></ul>
+
+  <h2>Top Scorer</h2>
+  <p id="topper"></p>
+
+  
+
+  
+
+  <script>
+    
+    let students = [
+      { id: 1, name: "Kumar", marks: 95, department: "CSE" },
+  { id: 2, name: "dharani", marks: 82, department: "ECE" },
+  { id: 3, name: "prudvi", marks: 65, department: "MECH" },
+  { id: 4, name: "teja", marks: 60, department: "CSE" },
+  { id: 5, name: "vijay", marks: 58, department: "ECE" },
+  { id: 6, name: "malli", marks: 68, department: "CSE" },
+  { id: 7, name: "dhanu", marks: 81, department: "ECE" },
+  { id: 8, name: "mohan", marks: 67, department: "MECH" },
+  { id: 9, name: "kishore", marks: 76, department: "CSE" },
+  { id: 10, name: "ravi", marks: 98, department: "ECE" },
+  { id: 11, name: "Amit", marks: 80, department: "CSE" },
+  { id: 12, name: "Priya", marks: 92, department: "ECE" },
+  { id: 13, name: "Rahul", marks: 54, department: "MECH" },
+  { id: 14, name: "Sneha", marks: 56, department: "EEE" },
+  { id: 15, name: "Kiran", marks: 88, department: "ECE" },
+    ];
+
+    // 1. Display all student names
+    let studentList = document.getElementById("studentList");
+    students.forEach(s => {
+      let li = document.createElement("li");
+      li.textContent = s.name;
+      studentList.appendChild(li);
+    });
+
+    // 2. Students with marks > 60
+    let passList = document.getElementById("passList");
+    students.filter(s => s.marks > 60).forEach(s => {
+      let li = document.createElement("li");
+      li.textContent = `${s.name} - ${s.marks}`;
+      passList.appendChild(li);
+    });
+
+    // 3. Count students 
+    let deptCount = students.reduce((acc, s) => {
+      acc[s.department] = (acc[s.department] || 0) + 1;
+      return acc;
+    }, {});
+
+    let deptUl = document.getElementById("deptCount");
+    for (let dept in deptCount) {
+      let li = document.createElement("li");
+      li.textContent = `${dept}: ${deptCount[dept]}`;
+      deptUl.appendChild(li);
+    }
+
+    // 4. top scorer
+    let topper = students.reduce((max, s) =>
+      s.marks > max.marks ? s : max
+    );
+    document.getElementById("topper").textContent =
+      `${topper.name} (${topper.marks})`;
+
+    
+  </script>
+
+</body>
+</html>
