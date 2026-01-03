@@ -1,85 +1,277 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Assignment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question_2</title>
+    <style>
+        
+    </style>
 </head>
 
 <body>
+    <div id="div1">
+        <fieldset>
+            <h3>Q1.ALL STUDENT NAMES</h3>
+            <ul id="q1"></ul>
+        </fieldset>
+    </div>
 
-  <h2>Student Names</h2>
-  <ul id="studentList"></ul>
+    <div>
+        <fieldset>
+            <h3>Q2.Students who scored more than 60 marks.</h3>
+            <ul id="q2"></ul>
+        </fieldset>
+    </div>
 
-  <h2>Students Scored > 60</h2>
-  <ul id="passList"></ul>
+    <div>
+        <fieldset>
+            <h3>Q3.Depertments Count.</h3>
+            <ul id="q3"></ul>
+        </fieldset>
+    </div>
 
-  <h2>Department Count</h2>
-  <ul id="deptCount"></ul>
+    <div>
+        <fieldset>
+            <h3>Q4.Student With Highest Marks.</h3>
+            <ul id="q4"></ul>
+        </fieldset>
+    </div>
 
-  <h2>Top Scorer</h2>
-  <p id="topper"></p>
+    <div style="padding: 10px;">
+        <h3>Q5.Display students in a table with columns: Name, Marks, Department.</h3>
+        <table border="1" cellpadding="8">
+            <thead>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>department</th>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
 
-  
+    <div>
+        <fieldset>
+            <h3>Q6.Average of student Marks</h3>
+            <ul id="q6"></ul>
+        </fieldset>
+    </div>
 
-  
+    <div>
+        <fieldset>
+            <h3>Q7.Students of CSE</h3>
+            <ul id="q7"></ul>
+        </fieldset>
+    </div>
 
-  <script>
-    
-    let students = [
-      { id: 1, name: "Kumar", marks: 95, department: "CSE" },
-  { id: 2, name: "dharani", marks: 82, department: "ECE" },
-  { id: 3, name: "prudvi", marks: 65, department: "MECH" },
-  { id: 4, name: "teja", marks: 60, department: "CSE" },
-  { id: 5, name: "vijay", marks: 58, department: "ECE" },
-  { id: 6, name: "malli", marks: 68, department: "CSE" },
-  { id: 7, name: "dhanu", marks: 81, department: "ECE" },
-  { id: 8, name: "mohan", marks: 67, department: "MECH" },
-  { id: 9, name: "kishore", marks: 76, department: "CSE" },
-  { id: 10, name: "ravi", marks: 98, department: "ECE" },
-  { id: 11, name: "Amit", marks: 80, department: "CSE" },
-  { id: 12, name: "Priya", marks: 92, department: "ECE" },
-  { id: 13, name: "Rahul", marks: 54, department: "MECH" },
-  { id: 14, name: "Sneha", marks: 56, department: "EEE" },
-  { id: 15, name: "Kiran", marks: 88, department: "ECE" },
-    ];
+    <div>
+        <fieldset>
+            <h3>Q8.Print Students in Decending order according to markks</h3>
+            <ul id="q8"></ul>
+        </fieldset>
+    </div>
 
-    // 1. Display all student names
-    let studentList = document.getElementById("studentList");
-    students.forEach(s => {
-      let li = document.createElement("li");
-      li.textContent = s.name;
-      studentList.appendChild(li);
-    });
+    <div>
+        <fieldset>
+            <h3>Q9.Add a new student object and update the HTML list.</h3>
+            <ul id="q9"></ul>
+        </fieldset>
+    </div>
 
-    // 2. Students with marks > 60
-    let passList = document.getElementById("passList");
-    students.filter(s => s.marks > 60).forEach(s => {
-      let li = document.createElement("li");
-      li.textContent = `${s.name} - ${s.marks}`;
-      passList.appendChild(li);
-    });
+    <div style="padding: 10px;" class="div10">
+        <h3>Q10.Highlight students who failed (marks < 50) in red color.</h3>
+        <table border="1" cellpadding="8">
+            <thead>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>department</th>
+            </thead>
+            <tbody id="tbody1"></tbody>
+        </table>
+    </div>
 
-    // 3. Count students 
-    let deptCount = students.reduce((acc, s) => {
-      acc[s.department] = (acc[s.department] || 0) + 1;
-      return acc;
-    }, {});
 
-    let deptUl = document.getElementById("deptCount");
-    for (let dept in deptCount) {
-      let li = document.createElement("li");
-      li.textContent = `${dept}: ${deptCount[dept]}`;
-      deptUl.appendChild(li);
-    }
+    <script>
+        const students = [
 
-    // 4. top scorer
-    let topper = students.reduce((max, s) =>
-      s.marks > max.marks ? s : max
-    );
-    document.getElementById("topper").textContent =
-      `${topper.name} (${topper.marks})`;
+          { id:1, name:"Kumar", marks:95, department:"CSE"},
+          { id:2, name:"dharani", marks:82, department:"ECE"},
+          { id:3, name:"prudvi", marks:65, department:"MECH"},
+          { id:4, name:"teja", marks:60, department:"CSE"},
+          { id:5, name:"vijay", marks:58, department:"ECE"},
+          { id:6, name:"malli", marks:68, department:"CSE"},
+          { id:7, name:"dhanu", marks:81, department:"ECE"},
+          { id:8, name:"mohan", marks:67, department:"MECH"},
+          { id:9, name:"kishore", marks:76, department:"CSE"},
+          { id:10, name:"ravi", marks:98, department:"ECE"},
+          { id:11, name:"Amit", marks:80, department:"CSE"},
+          { id:12, name:"Priya", marks:92, department:"ECE"},
+          { id:13, name:"Rahul", marks:54, department:"MECH"},
+          { id:14, name:"Sneha", marks:56, department:"EEE"},
+          { id:15, name:"Kiran", marks:88, department:"ECE"}
 
-    
-  </script>
+        ];
 
+        //Q!.Display all student names in an HTML unordered list.
+        const Ql_ele = document.getElementById("q1");
+        students.forEach((p) => {
+            const item1 = document.createElement("li");
+            item1.textContent = p.name;
+            Ql_ele.appendChild(item1);
+
+        });
+
+        //Q2.Display only students who scored more than 60 marks.
+        const Q2_ele = document.getElementById("q2");
+        let Q2_array = students.filter((p) => p.marks > 60);
+        console.log(Q2_array);
+        Q2_array.forEach((p) => {
+            const item2 = document.createElement("li");
+            item2.textContent = p.name;
+            Q2_ele.appendChild(item2);
+        });
+
+        //Q3.Count how many students belong to each department.
+        const Q3_ele = document.getElementById("q3");
+        var depCSE = 0;
+        var depECE = 0;
+        var depMECH = 0;
+        var depEEE = 0;
+        students.forEach((p) => {
+            var dep = p.department;
+            if (dep == "CSE") {
+                depCSE++;
+            } else if (dep == "ECE") {
+                depECE++;
+            } else if (dep == "MECH") {
+                depMECH++;
+            } else {
+                depEEE++;
+            }
+        });
+        const d1 = document.createElement("li");
+        d1.textContent = "CSE:" + `${depCSE}`;
+
+        const eCE = document.createElement("li");
+        eCE.textContent = "ECE" + `${depECE}`;
+
+        const mECH = document.createElement("li");
+        mECH.textContent = "MECH" + `${depMECH}`;
+
+        const eEE = document.createElement("li");
+        eEE.textContent = "EEE" + `${depEEE}`;
+
+        Q3_ele.appendChild(d1);
+        Q3_ele.appendChild(eCE);
+        Q3_ele.appendChild(mECH);
+        Q3_ele.appendChild(eEE);
+
+
+        //Q4.Student name and marks with highest marks
+        const Q4_ele = document.getElementById("q4");
+        let hmarks = students.sort((a, b) => b.marks - a.marks);
+        console.log(hmarks);
+
+        const highest = document.createElement("li");
+        highest.textContent = ` ${hmarks[0].name}:-${hmarks[0].marks}`;
+        Q4_ele.appendChild(highest);
+
+
+        //Q5.Display students in a table with columns: Name, Marks, Department.
+        const tablebody = document.getElementById("tbody");
+
+        students.forEach((p) => {
+            const row = document.createElement("tr");
+
+            const namecell = document.createElement("td");
+            namecell.textContent = p.name;
+
+
+            const marksCell = document.createElement("td");
+            marksCell.textContent = p.marks;
+
+            const deptCell = document.createElement("td");
+            deptCell.textContent = p.department;
+
+            row.appendChild(namecell);
+            row.appendChild(marksCell);
+            row.appendChild(deptCell);
+
+            tablebody.appendChild(row);
+        });
+
+        //Q6.Calculate the average marks of all students.
+        const Q6_ele = document.getElementById("q6");
+        var avg_marks = students.reduce((t, p) => t + p.marks, 0);
+        const avg = document.createElement("li");
+        var avg_marks1=avg_marks/10;
+        avg.textContent = avg_marks1;
+        Q6_ele.appendChild(avg);
+
+
+        //Q7.Display CSE students
+        const Q7_ele = document.getElementById("q7");
+        var CSE_array = students.filter((p) => p.department === "CSE");
+        console.log(CSE_array);
+
+        CSE_array.forEach((p) => {
+            const names = document.createElement("li");
+            names.textContent = p.name;
+            Q7_ele.appendChild(names);
+        });
+
+        //Q8.Sort students by marks in descending order.
+        console.log("sorted list");
+        console.log(hmarks);
+        const q8_ele = document.getElementById("q8");
+        hmarks.forEach((p) => {
+            const des = document.createElement("li");
+            des.textContent = `${p.id}-${p.name}-${p.marks}-${p.department}`;
+            q8_ele.appendChild(des);
+        });
+
+        //Q9.Add a new student object and update the HTML list.
+        const newStudent = { id: 11, name: "Eshwar", marks: 20, department: "CIVIL" };
+        students.push(newStudent);
+
+        const Q9_ele = document.getElementById("q9");
+        var sort_1 = students.sort((a, b) => a.id - b.id);
+        sort_1.forEach((p) => {
+            const get = document.createElement("li");
+            get.textContent = `${p.id}-${p.name}-${p.marks}-${p.department}`;
+            Q9_ele.appendChild(get);
+
+        });
+
+        //Highlight students who failed (marks < 50) in red color.
+        const tablebody1=document.getElementById("tbody1");
+
+        students.forEach((p)=>{
+            const row=document.createElement("tr");
+
+            if(p.marks<50){
+                row.style.color="red";
+            }
+            const namecell1=document.createElement("td");
+            namecell1.textContent=p.name;
+
+            const markscell1=document.createElement("td");
+            markscell1.textContent=p.marks;
+
+            const deptcell1=document.createElement("td");
+            deptcell1.textContent=p.department;
+
+            row.appendChild(namecell1);
+            row.appendChild(markscell1);
+            row.appendChild(deptcell1);
+
+            tablebody1.appendChild(row);
+        });
+
+
+
+    </script>
 </body>
+
 </html>
